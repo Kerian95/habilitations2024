@@ -1,6 +1,6 @@
-﻿namespace habilitations2024
+﻿namespace habilitations2024.view
 {
-    partial class Form1
+    partial class FrmHabilitations
     {
         /// <summary>
         /// Variable nécessaire au concepteur.
@@ -39,14 +39,14 @@
             this.lstTables.Size = new System.Drawing.Size(120, 95);
             this.lstTables.TabIndex = 0;
             // 
-            // Form1
+            // FrmHabilitations
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.lstTables);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "FrmHabilitations";
+            this.Text = "Habilitations";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
 
