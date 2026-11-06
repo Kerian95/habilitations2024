@@ -80,6 +80,7 @@
             this.btnDemandeChangePwd.TabIndex = 3;
             this.btnDemandeChangePwd.Text = "changer pwd";
             this.btnDemandeChangePwd.UseVisualStyleBackColor = true;
+            this.btnDemandeChangePwd.Click += new System.EventHandler(this.btnDemandeChangePwd_Click);
             // 
             // btnDemandeSupprDev
             // 
@@ -263,6 +264,7 @@
             this.btnAnnulPwd.TabIndex = 5;
             this.btnAnnulPwd.Text = "annuler";
             this.btnAnnulPwd.UseVisualStyleBackColor = true;
+            this.btnAnnulPwd.Click += new System.EventHandler(this.btnAnnulPwd_Click);
             // 
             // btnEnregPwd
             // 
@@ -272,6 +274,7 @@
             this.btnEnregPwd.TabIndex = 4;
             this.btnEnregPwd.Text = "enregistrer";
             this.btnEnregPwd.UseVisualStyleBackColor = true;
+            this.btnEnregPwd.Click += new System.EventHandler(this.btnEnregPwd_Click);
             // 
             // txtPwd2
             // 

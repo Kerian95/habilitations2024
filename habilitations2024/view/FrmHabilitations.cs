@@ -76,6 +76,16 @@ namespace habilitations2024.view
             }
         }
 
+        // active (true) ou désactive (false) la zone de changement de mot de passe
+        private void ActiverModePwd(bool pwd)
+        {
+            grbLesDeveloppeurs.Enabled = !pwd;
+            grbDeveloppeur.Enabled = !pwd;
+            grbPwd.Enabled = pwd;
+            txtPwd.Text = "";
+            txtPwd2.Text = "";
+        }
+
         private void btnDemandeSupprDev_Click(object sender, EventArgs e)
         {
             if (dgvDeveloppeurs.SelectedRows.Count > 0)
@@ -160,6 +170,40 @@ namespace habilitations2024.view
             {
                 MessageBox.Show("Une ligne doit être sélectionnée.", "Information");
             }
+        }
+
+        private void btnDemandeChangePwd_Click(object sender, EventArgs e)
+        {
+            if (dgvDeveloppeurs.SelectedRows.Count > 0)
+            {
+                ActiverModePwd(true);
+            }
+            else
+            {
+                MessageBox.Show("Une ligne doit être sélectionnée.", "Information");
+            }
+        }
+
+        private void btnEnregPwd_Click(object sender, EventArgs e)
+        {
+            // les 2 saisies doivent être remplies et identiques
+            if (!string.IsNullOrEmpty(txtPwd.Text) && txtPwd.Text == txtPwd2.Text)
+            {
+                Developpeur developpeur = (Developpeur)bdgDeveloppeurs.List[bdgDeveloppeurs.Position];
+                developpeur.Pwd = txtPwd.Text;
+                controller.UpdatePwd(developpeur);
+                MessageBox.Show("Le mot de passe a été modifié.", "Information");
+                ActiverModePwd(false);
+            }
+            else
+            {
+                MessageBox.Show("Les 2 mots de passe doivent être remplis et identiques.", "Information");
+            }
+        }
+
+        private void btnAnnulPwd_Click(object sender, EventArgs e)
+        {
+            ActiverModePwd(false);
         }
     }
 }
