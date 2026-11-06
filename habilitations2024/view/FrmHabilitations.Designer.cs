@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmHabilitations));
             this.grbLesDeveloppeurs = new System.Windows.Forms.GroupBox();
             this.btnDemandeChangePwd = new System.Windows.Forms.Button();
             this.btnDemandeSupprDev = new System.Windows.Forms.Button();
@@ -318,6 +319,7 @@
             this.Controls.Add(this.grbPwd);
             this.Controls.Add(this.grbDeveloppeur);
             this.Controls.Add(this.grbLesDeveloppeurs);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmHabilitations";
             this.Text = "Habilitations";
             this.Load += new System.EventHandler(this.Form1_Load);

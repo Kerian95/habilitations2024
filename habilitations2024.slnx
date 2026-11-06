@@ -1,3 +1,6 @@
 <Solution>
   <Project Path="habilitations2024/habilitations2024.csproj" Id="964f9b22-c639-4821-8487-be59cdf54726" />
+  <Project Path="Habilitations2024Installeur/Habilitations2024Installeur.vdproj" Type="Installer">
+    <Build />
+  </Project>
 </Solution>
