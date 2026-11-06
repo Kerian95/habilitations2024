@@ -100,6 +100,31 @@ namespace habilitations2024.dal
             ExecuteUpdate(req, parameters);
         }
 
+        // contrôle si l'admin existe (nom, prénom, pwd) avec le profil 'admin'
+        public bool ControleAuthentification(Admin admin)
+        {
+            string req = "SELECT d.iddeveloppeur FROM developpeur d JOIN profil p ON d.idprofil = p.idprofil "
+                       + "WHERE d.nom = @nom AND d.prenom = @prenom AND d.pwd = SHA2(@pwd, 256) AND p.nom = 'admin';";
+            Dictionary<string, object> parameters = new Dictionary<string, object>
+    {
+        { "@nom", admin.Nom },
+        { "@prenom", admin.Prenom },
+        { "@pwd", admin.Pwd }
+    };
+            try
+            {
+                List<object[]> records = access.Manager.ReqSelect(req, parameters);
+                // vrai si au moins une ligne a été trouvée
+                return (records != null && records.Count > 0);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                Environment.Exit(0);
+            }
+            return false;
+        }
+
         // exécute une requête de mise à jour en capturant les erreurs
         private void ExecuteUpdate(string req, Dictionary<string, object> parameters)
         {
